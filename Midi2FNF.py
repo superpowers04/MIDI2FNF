@@ -70,6 +70,7 @@ if __name__ == '__main__':
     print(tick_duration)
 
     print("Tempo:" + str(DEFAULT_TEMPO))
+
     for i, track in enumerate(mid.tracks):
         currTrack = i
         tempo = DEFAULT_TEMPO
@@ -93,11 +94,14 @@ if __name__ == '__main__':
                 globalTime+= message.time
                 if (message.type == "note_on"):
                     currTime = globalTime*tick_duration*1000
+                    if currTime < 0:
+                        currTime = 0
                     noteToUse = 0
                     if (message.channel == 0):
                         #print(message)
+                       
                         if (message.note < 60 or message.note> 63):
-                            noteToUse = random.choice([0,1,2,3])
+                            noteToUse = (message.note%4)
                         else: 
                             noteToUse = message.note-60
                     if (message.channel == 1):
