@@ -1,5 +1,5 @@
 # MIDI2FNF
-Convert midi files into Friday Night Funkin' songcharts
+Convert midi files into Friday Night Funkin' songcharts. Uses a loop instead of random notes for better charting
 
 ## Usage
 
